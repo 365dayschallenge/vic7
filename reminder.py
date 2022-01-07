@@ -1,10 +1,7 @@
-
+import sys
 # Get input number
 
-# input = input("Enter a number")
-
-
-input = 1234567
+input = input("Enter a number: ")
 
 # convert input to list
 def tolist(input):
@@ -31,13 +28,17 @@ magicNumber = getmagicNumber()
 sum=0
 
 # sum the multiplications
-def sumProduct(sum, input):
+def thirt(sum, input):
     numbers = tolist(input)
     for i,y in zip(numbers,magicNumber): 
         sum = sum + (i*y) 
             
-    if sum != input%13:
-            print(sum)
-            sumProduct(0, sum)
-    else: print(sum)
-sumProduct(sum, input)
+    while sum%13 == input%13:  
+        numbers = tolist(sum) 
+        sum = 0  
+        for i,y in zip(numbers,magicNumber):
+            sum = sum + (i*y) 
+        print(sum)
+        sys.exit()
+
+thirt(sum, input)
